@@ -8,7 +8,7 @@ then
 	exit
 fi
 
-git clone https://github.com/XiMatriarx/xiarx-client.git --depth 1 --branch 'v1.0.12'
+git clone https://github.com/XiMatriarx/xiarx-client.git --depth 1 --branch 'v1.0.0'
 mv xiarx-client $project
 cd $project
 rm -Rf .git
