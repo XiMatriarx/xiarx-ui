@@ -1,19 +1,37 @@
 {
   "root": true,
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended"
+  ],
   "ignorePatterns": ["node_modules", "lib"],
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "react"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": [".eslinttypescriptrc.json"],
-    "sourceType": "module"
+    "project": [".typescriptrc.json"],
+    "sourceType": "module",
+    "ecmaVersion": 14,
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "env": {
-    "browser": false,
+    "browser": true,
     "es2022": true,
     "jest": true
   },
-  "settings": {},
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "fragment": "Fragment",
+      "version": "detect",
+      "flowVersion": "0.53"
+    }
+  },
   "overrides": [],
-  "rules": {}
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "off"
+  }
 }
