@@ -3,7 +3,7 @@ message: 'If you use this software you can cite it.'
 authors:
   - given-names: 'Xi'
     family-names: 'Matriarx'
-title: 'Xi Arx Client'
-version: 1.0.0
-date-released: 2024-02-15
-url: 'https://github.com/XiMatriarx/xiarx-client'
+title: 'Xi Arx UI'
+version: 1.0.8
+date-released: 2024-02-04
+url: 'https://github.com/XiMatriarx/xiarx-ui'
