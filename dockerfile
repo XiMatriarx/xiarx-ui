@@ -1,4 +1,4 @@
-FROM node:20-alpine AS xiarx-client-build
+FROM node:20-alpine AS xiarx-ui-build
 
 ARG PORT=80
 
@@ -9,15 +9,19 @@ COPY . .
 RUN npm install --omit=dev
 RUN npm run build
 
-FROM node:20-alpine AS xiarx-client
+FROM node:20-alpine AS xiarx-ui
 
-WORKDIR /app
+WORKDIR /www
 
-COPY package.json .
-COPY package-lock.json .
-COPY --from=xiarx-client-build /app/node_modules node_modules
-COPY --from=xiarx-client-build /app/lib .
+RUN apk update
+RUN apk add nginx
+RUN adduser -D -g 'www' www
+RUN chown -R www:www /var/lib/nginx
+RUN chown -R www:www /www
+
+COPY --from=xiarx-ui-build /app/lib .
+COPY nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE $PORT
 
-CMD ["node", "index.js"]
+CMD ["nginx", "-g", "daemon off;"]
