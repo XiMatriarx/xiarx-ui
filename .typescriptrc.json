@@ -1,7 +1,7 @@
 {
   // "extends": "",
   "references": [],
-  // "files": [],
+  "files": ["module.d.ts"],
   "include": ["src/**/*.tsx", "src/**/*.ts"],
   "exclude": [],
   "compilerOptions": {
@@ -66,7 +66,22 @@
     "outDir": "lib",
     // "outFile": "",
     "paths": {
-      "@source/*": ["./*"]
+      "@app": ["./*"],
+      "@app/*": ["./*"],
+      "@components": ["./components/*"],
+      "@components/*": ["./components/*"],
+      "@context": ["./context/*"],
+      "@context/*": ["./context/*"],
+      "@hooks": ["./hooks/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@routes": ["./routes/*"],
+      "@routes/*": ["./routes/*"],
+      "@static": ["./static/*"],
+      "@static/*": ["./static/*"],
+      "@theme": ["./theme/*"],
+      "@theme/*": ["./theme/*"],
+      "@views": ["./views/*"],
+      "@views/*": ["./views/*"]
     },
     "preserveConstEnums": true,
     "preserveSymlinks": true,

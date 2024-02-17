@@ -1,0 +1,26 @@
+#menu {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  display: none;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-background);
+
+  &.visible {
+    display: flex;
+  }
+
+  a,
+  .item {
+    width: calc(100% - 40px);
+    padding: 10px 20px;
+    text-align: right;
+
+    &:hover {
+      background: var(--color-background-highlight);
+      cursor: pointer;
+    }
+  }
+}

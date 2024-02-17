@@ -2,11 +2,9 @@ import React, {useState} from 'react'
 
 import type {FC} from 'react'
 
-import {Path} from '@app/router'
-
+import MenuComponent from '@components/layout/menu'
 import HeaderComponent from '@components/parts/header'
 import AvatarComponent from '@components/parts/avatar'
-import MenuComponent from '@components/parts/menu'
 
 import User from '@static/images/user.svg'
 
@@ -22,19 +20,9 @@ const Header: FC<Props> = () => {
       <HeaderComponent type={1}>Xi Arx</HeaderComponent>
       <AvatarComponent
         src={User}
-        click={() => {
-          setMenuVisible(!menuVisible)
-        }}
+        click={() => setMenuVisible(!menuVisible)}
       />
-      <MenuComponent
-        visible={menuVisible}
-        items={[
-          {
-            label: 'Settings',
-            link: Path.SETTINGS,
-          },
-        ]}
-      />
+      <MenuComponent visible={menuVisible} />
     </div>
   )
 }

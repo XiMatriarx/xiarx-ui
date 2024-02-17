@@ -174,7 +174,18 @@ const config = {
       },
       {
         test: /\.s?css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '/',
+              emit: true,
+              esModule: true,
+            },
+          },
+          'css-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.(svg|png|jpg|gif|eot|ttf|woff|woff2)$/,
@@ -268,7 +279,7 @@ const config = {
     auxiliaryComment: undefined,
     charset: false,
     chunkFilename: '[id].js',
-    chunkFormat: 'commonjs', // module
+    // chunkFormat: 'module',
     chunkLoadTimeout: 60000,
     chunkLoadingGlobal: 'webpackChunkwebpack',
     chunkLoading: undefined,
@@ -370,7 +381,15 @@ const config = {
       excludeChunks: '',
       xhtml: false,
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      chunkFilename: '[name].css',
+      ignoreOrder: false,
+      insert: undefined,
+      attributes: undefined,
+      linkType: 'text/css',
+      runtime: true,
+      experimentalUseImportModule: undefined,
+    }),
   ],
   profile: true,
   recordsInputPath: path.join(directory, 'cache', 'records.json'),
@@ -378,7 +397,14 @@ const config = {
   recordsPath: path.join(directory, 'cache', 'records.json'),
   resolve: {
     alias: {
-      '@source': path.join(directory, 'src'),
+      '@app': path.join(directory, 'src'),
+      '@components': path.join(directory, 'src/components'),
+      '@context': path.join(directory, 'src/context'),
+      '@hooks': path.join(directory, 'src/hooks'),
+      '@routes': path.join(directory, 'src/routes'),
+      '@static': path.join(directory, 'src/static'),
+      '@theme': path.join(directory, 'src/theme'),
+      '@views': path.join(directory, 'src/views'),
     },
     aliasFields: ['browser'],
     byDependency: {

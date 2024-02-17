@@ -41,11 +41,6 @@ const Navigation: FC<Props> = () => {
         link={Path.CHAT}>
         Chat
       </LinkComponent>
-      <LinkComponent
-        class={location.pathname === Path.SETTINGS ? 'active' : undefined}
-        link={Path.SETTINGS}>
-        Settings
-      </LinkComponent>
     </div>
   )
 }
