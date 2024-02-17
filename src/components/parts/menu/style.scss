@@ -1,0 +1,14 @@
+.menu {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    padding: 10px 20px;
+
+    &:hover {
+      background: var(--color-background-highlight);
+    }
+  }
+}

@@ -1,0 +1,17 @@
+#navigation {
+  display: flex;
+  flex-flow: row;
+  justify-content: start;
+  align-items: center;
+  width: 100vw;
+  background: var(--color-navigation);
+
+  a {
+    padding: 20px;
+
+    &.active,
+    &:hover {
+      background: var(--color-background-highlight);
+    }
+  }
+}
