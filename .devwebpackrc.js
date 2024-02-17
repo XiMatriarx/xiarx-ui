@@ -80,12 +80,12 @@ const config = {
     ipc: undefined,
     liveReload: false,
     onListening: undefined,
-    open: true,
+    open: false,
     port: process.env.PORT,
     proxy: [],
     server: {
-      type: 'https',
-      options: {},
+      // type: 'https',
+      // options: {},
     },
     setupExitSignals: true,
     setupMiddlewares: undefined,
@@ -308,7 +308,7 @@ const config = {
     auxiliaryComment: undefined,
     charset: false,
     chunkFilename: '[id].js',
-    chunkFormat: 'commonjs', // module
+    // chunkFormat: 'module',
     chunkLoadTimeout: 60000,
     chunkLoadingGlobal: 'webpackChunkwebpack',
     chunkLoading: undefined,
@@ -373,8 +373,8 @@ const config = {
   performance: {
     assetFilter: (asset) => asset.endsWith('.js'),
     hints: 'warning',
-    maxAssetSize: 4000000,
-    maxEntrypointSize: 4000000,
+    maxAssetSize: 8000000,
+    maxEntrypointSize: 8000000,
   },
   plugins: [
     new webpack.DefinePlugin({}),
@@ -417,7 +417,14 @@ const config = {
   recordsPath: path.join(directory, 'cache', 'records.json'),
   resolve: {
     alias: {
-      '@source': path.join(directory, 'src'),
+      '@app': path.join(directory, 'src'),
+      '@components': path.join(directory, 'src/components'),
+      '@context': path.join(directory, 'src/context'),
+      '@hooks': path.join(directory, 'src/hooks'),
+      '@routes': path.join(directory, 'src/routes'),
+      '@static': path.join(directory, 'src/static'),
+      '@theme': path.join(directory, 'src/theme'),
+      '@views': path.join(directory, 'src/views'),
     },
     aliasFields: ['browser'],
     byDependency: {
