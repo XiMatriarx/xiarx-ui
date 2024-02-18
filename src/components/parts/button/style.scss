@@ -1,0 +1,15 @@
+.button {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  border-radius: 8px;
+  background: #800080;
+
+  &:hover {
+    background: #a000a0;
+    cursor: pointer;
+  }
+}

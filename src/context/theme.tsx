@@ -34,10 +34,7 @@ const getTheme = (): Theme => {
 const setTheme = (theme: Theme): void =>
   localStorage.setItem('theme', JSON.stringify(theme))
 
-const ThemeContext = createContext({
-  theme: system,
-  setTheme,
-} as ThemeContext)
+const ThemeContext = createContext({} as ThemeContext)
 
 export const useTheme = () => useContext(ThemeContext)
 

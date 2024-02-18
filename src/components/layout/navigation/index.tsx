@@ -4,7 +4,6 @@ import {useLocation} from 'react-router-dom'
 import type {FC} from 'react'
 
 import {Path} from '@app/router'
-
 import LinkComponent from '@components/parts/link'
 
 import './style'
