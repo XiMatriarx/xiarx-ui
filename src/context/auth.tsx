@@ -4,12 +4,20 @@ import type {FC, ReactNode} from 'react'
 
 interface AuthContext {
   token: string | null
-  authenticate: (username: string, password: string) => void
+  register: (
+    email: string,
+    password: string,
+    name: string,
+    sex: string,
+    sexes: {[key: string]: boolean},
+    interest: {[key: string]: boolean},
+  ) => void
+  authenticate: (email: string, password: string) => void
   logout: () => void
 }
 
 const getToken = (): string | null =>
-  JSON.parse(localStorage.getItem('token') || '{}') || null
+  JSON.parse(localStorage.getItem('token') || 'null')
 
 const setToken = (token: string): void =>
   localStorage.setItem('token', JSON.stringify(token))
@@ -31,11 +39,35 @@ const AuthProvider: FC<AuthProvider> = (props) => {
       setToken(token)
       loadToken(token)
     },
-    authenticate: (username: string, password: string) => {
-      console.log(username)
+    register: (
+      email: string,
+      password: string,
+      name: string,
+      sex: string,
+      sexes: {[key: string]: boolean},
+      interest: {[key: string]: boolean},
+    ) => {
+      console.log(email)
       console.log(password)
+      console.log(name)
+      console.log(sex)
+      console.log(sexes)
+      console.log(interest)
+
+      setToken('secret')
+      loadToken('secret')
     },
-    logout: () => {},
+    authenticate: (email: string, password: string) => {
+      console.log(email)
+      console.log(password)
+
+      setToken('secret')
+      loadToken('secret')
+    },
+    logout: () => {
+      localStorage.clear()
+      loadToken(null)
+    },
   }
 
   return (

@@ -3,6 +3,7 @@ import React from 'react'
 import type {FC} from 'react'
 
 import {Path} from '@app/router'
+import {useAuth} from '@context/auth'
 import LinkComponent from '@components/parts/link'
 
 import './style'
@@ -12,6 +13,8 @@ interface Props {
 }
 
 const Menu: FC<Props> = (props) => {
+  const auth = useAuth()
+
   return (
     <div
       id='menu'
@@ -20,7 +23,7 @@ const Menu: FC<Props> = (props) => {
       <LinkComponent link={Path.PRIVACY}>Privacy</LinkComponent>
       <div
         className='item'
-        onClick={() => true}>
+        onClick={() => auth.logout()}>
         Log out
       </div>
     </div>

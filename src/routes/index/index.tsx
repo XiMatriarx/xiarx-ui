@@ -1,18 +1,21 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {useNavigate} from 'react-router-dom'
 
 import type {FC} from 'react'
 import type {RouteProps} from 'react-router-dom'
 
-import PageComponent from '@components/layout/page'
+import {Path} from '@app/router'
 
 import './style'
 
 const Index: FC<RouteProps> = () => {
-  return (
-    <PageComponent>
-      <div id='index'>Index</div>
-    </PageComponent>
-  )
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    navigate(Path.REGISTRATION)
+  }, [])
+
+  return <></>
 }
 
 export default Index
