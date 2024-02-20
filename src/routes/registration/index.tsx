@@ -1,9 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import {useNavigate} from 'react-router-dom'
 
 import type {FC} from 'react'
 import type {RouteProps} from 'react-router-dom'
 
 import {Path} from '@app/router'
+import {useAuth} from '@context/auth'
 import Header from '@components/parts/header'
 import Loader from '@components/parts/loader'
 import Input from '@components/parts/input'
@@ -14,6 +16,9 @@ import {validateEmail} from '@utilities/regex'
 import './style'
 
 const Registration: FC<RouteProps> = () => {
+  const navigate = useNavigate()
+  const auth = useAuth()
+
   const [step, setStep] = useState(1)
   const [text, setText] = useState<string>('What is your email?')
   const [email, setEmail] = useState<string>('')
@@ -31,6 +36,12 @@ const Registration: FC<RouteProps> = () => {
     casual: true,
     serious: true,
   })
+
+  useEffect(() => {
+    if (auth.token) {
+      navigate(Path.PROFILE)
+    }
+  }, [])
 
   return (
     <div id='registration'>
@@ -53,6 +64,7 @@ const Registration: FC<RouteProps> = () => {
             </div>
             <div className='buttons'>
               <Button
+                id='register'
                 click={() => {
                   if (!validateEmail(email)) {
                     setText('A valid email is required.')
@@ -61,7 +73,7 @@ const Registration: FC<RouteProps> = () => {
                     setText('What is your password?')
                   }
                 }}>
-                Next
+                Register
               </Button>
             </div>
           </div>
@@ -319,7 +331,12 @@ const Registration: FC<RouteProps> = () => {
                 }}>
                 Back
               </Button>
-              <Button click={() => {}}>Done</Button>
+              <Button
+                click={() =>
+                  auth.register(email, password, name, sex, sexes, interest)
+                }>
+                Done
+              </Button>
             </div>
           </div>
         )}

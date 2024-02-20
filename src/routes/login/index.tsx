@@ -1,9 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import {useNavigate} from 'react-router-dom'
 
 import type {FC} from 'react'
 import type {RouteProps} from 'react-router-dom'
 
 import {Path} from '@app/router'
+import {useAuth} from '@context/auth'
 import Header from '@components/parts/header'
 import Loader from '@components/parts/loader'
 import Input from '@components/parts/input'
@@ -13,8 +15,17 @@ import Link from '@components/parts/link'
 import './style'
 
 const Login: FC<RouteProps> = () => {
+  const navigate = useNavigate()
+  const auth = useAuth()
+
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+
+  useEffect(() => {
+    if (auth.token) {
+      navigate(Path.PROFILE)
+    }
+  }, [])
 
   return (
     <div id='login'>
@@ -46,7 +57,9 @@ const Login: FC<RouteProps> = () => {
             />
           </div>
           <div className='buttons'>
-            <Button click={() => {}}>Login</Button>
+            <Button click={() => auth.authenticate(email, password)}>
+              Login
+            </Button>
           </div>
         </div>
         <p>

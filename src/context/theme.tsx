@@ -22,7 +22,7 @@ const system: Theme.LIGHT | Theme.DARK =
   : Theme.LIGHT
 
 const getTheme = (): Theme => {
-  const theme = JSON.parse(localStorage.getItem('theme') || '{}')
+  const theme = JSON.parse(localStorage.getItem('theme') || 'null')
 
   return (
     !theme || theme === Theme.SYSTEM ? Theme.SYSTEM
