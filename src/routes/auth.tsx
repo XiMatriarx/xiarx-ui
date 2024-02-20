@@ -17,7 +17,7 @@ const Profile: FC<RouteProps> = () => {
       navigate(Path.REGISTRATION)
     }
   }, [])
-
+  console.log(auth.token)
   return auth.token ? <Outlet /> : <Loader />
 }
 

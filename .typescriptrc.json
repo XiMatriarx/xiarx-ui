@@ -80,6 +80,8 @@
       "@static/*": ["./static/*"],
       "@theme": ["./theme/*"],
       "@theme/*": ["./theme/*"],
+      "@utilities": ["./utilities/*"],
+      "@utilities/*": ["./utilities/*"],
       "@views": ["./views/*"],
       "@views/*": ["./views/*"]
     },

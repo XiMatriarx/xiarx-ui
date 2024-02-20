@@ -9,6 +9,7 @@ interface Props {
   class?: string | undefined
   type: 'text' | 'password'
   value: string
+  focus?: boolean | undefined
   change: (value: string) => void
 }
 
@@ -19,6 +20,7 @@ const Input: FC<Props> = (props) => {
       className={props.class}
       type={props.type}
       value={props.value}
+      autoFocus={props.focus}
       onChange={(event) => props.change(event.target.value)}
     />
   )

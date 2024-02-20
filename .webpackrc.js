@@ -55,7 +55,7 @@ const config = {
   },
   entry: {
     script: {
-      import: path.join(directory, 'src', 'index.tsx'),
+      import: path.join(directory, 'src', 'web.tsx'),
       filename: '[contenthash].js',
       dependOn: undefined,
       chunkLoading: 'import',
@@ -404,6 +404,7 @@ const config = {
       '@routes': path.join(directory, 'src/routes'),
       '@static': path.join(directory, 'src/static'),
       '@theme': path.join(directory, 'src/theme'),
+      '@utilities': path.join(directory, 'src/utilities'),
       '@views': path.join(directory, 'src/views'),
     },
     aliasFields: ['browser'],
