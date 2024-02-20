@@ -1,6 +1,6 @@
 #navigation {
   display: flex;
-  flex-flow: row;
+  flex-flow: row nowrap;
   justify-content: start;
   align-items: center;
   width: 100vw;
@@ -11,7 +11,11 @@
 
     &.active,
     &:hover {
-      background: var(--color-background-highlight);
+      background: var(--color-background);
+      box-shadow: inset 0 6px 4px 2px #101010;
+      transition:
+        background 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out;
     }
   }
 }

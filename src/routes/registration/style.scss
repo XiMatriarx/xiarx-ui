@@ -1,7 +1,7 @@
 #registration {
   flex: 1 1 auto;
   display: flex;
-  flex-flow: column;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   width: 100vw;
@@ -9,7 +9,7 @@
 
   #container {
     display: flex;
-    flex-flow: column;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
 
@@ -23,14 +23,14 @@
 
     .container {
       display: flex;
-      flex-flow: column;
+      flex-flow: column nowrap;
       justify-content: start;
       align-items: center;
       margin-top: 20px;
 
       .input {
         display: flex;
-        flex-flow: column;
+        flex-flow: column nowrap;
 
         input {
           width: 200px;
@@ -39,12 +39,12 @@
 
         .radio {
           display: flex;
-          flex-flow: column;
+          flex-flow: column nowrap;
           margin-top: 8px;
 
           .subcontainer {
             display: flex;
-            flex-flow: row;
+            flex-flow: row nowrap;
             align-items: center;
             margin-top: 8px;
 
@@ -56,9 +56,15 @@
         }
       }
 
+      .error {
+        margin-top: 12px;
+        font-size: 0.9em;
+        color: red;
+      }
+
       .buttons {
         display: flex;
-        flex-flow: row;
+        flex-flow: row nowrap;
         justify-content: end;
         align-items: center;
         width: 100%;
@@ -75,7 +81,7 @@
     }
 
     p {
-      font-size: 0.8em;
+      font-size: 0.9em;
 
       a {
         color: #ff00ff;

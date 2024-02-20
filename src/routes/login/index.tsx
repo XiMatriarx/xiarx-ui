@@ -11,6 +11,7 @@ import Loader from '@components/parts/loader'
 import Input from '@components/parts/input'
 import Button from '@components/parts/button'
 import Link from '@components/parts/link'
+import {validateEmail} from '@utilities/regex'
 
 import './style'
 
@@ -20,6 +21,7 @@ const Login: FC<RouteProps> = () => {
 
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+  const [error, setError] = useState<string>('')
 
   useEffect(() => {
     if (auth.token) {
@@ -56,8 +58,16 @@ const Login: FC<RouteProps> = () => {
               }}
             />
           </div>
+          {error && <div className='error'>{error}</div>}
           <div className='buttons'>
-            <Button click={() => auth.authenticate(email, password)}>
+            <Button
+              click={() => {
+                if (!validateEmail(email) || !password) {
+                  setError('A valid email and password is required.')
+                } else {
+                  auth.authenticate(email, password)
+                }
+              }}>
               Login
             </Button>
           </div>

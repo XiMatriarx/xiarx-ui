@@ -41,6 +41,7 @@ export const useTheme = () => useContext(ThemeContext)
 const variables = [
   'color-background',
   'color-background-highlight',
+  'color-container',
   'color-page',
   'color-header',
   'color-navigation',

@@ -1,6 +1,6 @@
 html {
   display: flex;
-  flex-flow: column;
+  flex-flow: column nowrap;
   justify-content: start;
   align-items: start;
   width: 100vw;
@@ -11,7 +11,7 @@ html {
 body {
   flex: 1 1 auto;
   display: flex;
-  flex-flow: column;
+  flex-flow: column nowrap;
   justify-content: start;
   align-items: start;
   width: 100vw;
@@ -22,7 +22,7 @@ body {
 #root {
   flex: 1 1 auto;
   display: flex;
-  flex-flow: column;
+  flex-flow: column nowrap;
   justify-content: start;
   align-items: start;
   width: 100vw;

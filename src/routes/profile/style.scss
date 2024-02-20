@@ -1,0 +1,98 @@
+#profile {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+
+  #info {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+
+    #avatar {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 200px;
+      background: var(--color-container);
+      border-radius: 100%;
+      box-shadow: 2px 2px 4px 1px #101010;
+
+      img {
+        width: 160px;
+        height: 160px;
+      }
+    }
+
+    #detail {
+      flex: 1 1 auto;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: start;
+      align-items: start;
+      min-height: 120px;
+      margin-left: 40px;
+      padding: 40px;
+      background: var(--color-container);
+      border-radius: 8px;
+      box-shadow: 2px 2px 4px 1px #101010;
+
+      .name {
+        font-size: 2em;
+        font-weight: bold;
+        line-height: 1.2em;
+      }
+
+      .info {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: start;
+        align-items: center;
+
+        .age {
+          margin-right: 8px;
+          font-size: 1.25em;
+          line-height: 1em;
+        }
+
+        .location {
+          margin-left: 8px;
+          font-size: 1.25em;
+          line-height: 1em;
+        }
+      }
+
+      .items {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: start;
+        align-items: start;
+        margin-top: 20px;
+
+        .item {
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+
+  #about {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+    align-items: start;
+    width: calc(100% - 80px);
+    margin-top: 40px;
+    padding: 40px;
+    background: var(--color-container);
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px 1px #101010;
+  }
+}

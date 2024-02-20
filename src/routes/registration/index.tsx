@@ -36,6 +36,7 @@ const Registration: FC<RouteProps> = () => {
     casual: true,
     serious: true,
   })
+  const [error, setError] = useState<string>('')
 
   useEffect(() => {
     if (auth.token) {
@@ -62,15 +63,17 @@ const Registration: FC<RouteProps> = () => {
                 }}
               />
             </div>
+            {error && <div className='error'>{error}</div>}
             <div className='buttons'>
               <Button
                 id='register'
                 click={() => {
                   if (!validateEmail(email)) {
-                    setText('A valid email is required.')
+                    setError('A valid email is required.')
                   } else {
                     setStep(2)
                     setText('What is your password?')
+                    setError('')
                   }
                 }}>
                 Register
@@ -91,21 +94,24 @@ const Registration: FC<RouteProps> = () => {
                 }}
               />
             </div>
+            {error && <div className='error'>{error}</div>}
             <div className='buttons'>
               <Button
                 click={() => {
                   setStep(1)
                   setText('What is your email?')
+                  setError('')
                 }}>
                 Back
               </Button>
               <Button
                 click={() => {
                   if (!password) {
-                    setText('A password is required.')
+                    setError('A password is required.')
                   } else {
                     setStep(3)
                     setText('What is your name?')
+                    setError('')
                   }
                 }}>
                 Next
@@ -126,21 +132,24 @@ const Registration: FC<RouteProps> = () => {
                 }}
               />
             </div>
+            {error && <div className='error'>{error}</div>}
             <div className='buttons'>
               <Button
                 click={() => {
                   setStep(2)
                   setText('What is your password?')
+                  setError('')
                 }}>
                 Back
               </Button>
               <Button
                 click={() => {
                   if (!name) {
-                    setText('A name is required.')
+                    setError('A name is required.')
                   } else {
                     setStep(4)
                     setText('I am a?')
+                    setError('')
                   }
                 }}>
                 Next
