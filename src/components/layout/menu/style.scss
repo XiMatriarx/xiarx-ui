@@ -1,12 +1,12 @@
 #menu {
   position: absolute;
   right: 0;
-  top: 60px;
+  top: 130px;
   display: none;
-  flex-flow: column;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  background: var(--color-background);
+  background: var(--color-header);
 
   &.visible {
     display: flex;
@@ -19,8 +19,13 @@
     text-align: right;
 
     &:hover {
-      background: var(--color-background-highlight);
+      background: var(--color-page);
+      box-shadow: inset -4px 2px 4px 1px #101010;
+      color: var(--color-text-highlight);
       cursor: pointer;
+      transition:
+        background 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out;
     }
   }
 }

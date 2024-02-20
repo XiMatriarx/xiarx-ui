@@ -56,6 +56,7 @@ const AuthProvider: FC<AuthProvider> = (props) => {
 
       setToken('secret')
       loadToken('secret')
+      window.location.reload()
     },
     authenticate: (email: string, password: string) => {
       console.log(email)
@@ -63,10 +64,12 @@ const AuthProvider: FC<AuthProvider> = (props) => {
 
       setToken('secret')
       loadToken('secret')
+      window.location.reload()
     },
     logout: () => {
       localStorage.clear()
       loadToken(null)
+      window.location.reload()
     },
   }
 
