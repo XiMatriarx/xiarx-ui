@@ -15,8 +15,8 @@ import PrivacyRoute from '@routes/privacy'
 
 export enum Path {
   INDEX = '/',
-  REGISTRATION = '/registration',
-  LOGIN = '/login',
+  REGISTRATION = '/auth/registration',
+  LOGIN = '/auth/login',
   PROFILE = '/profile',
   HUB = '/hub',
   LIKES = '/likes',

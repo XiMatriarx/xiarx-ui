@@ -1,0 +1,66 @@
+#login {
+  flex: 1 1 auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  #container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      font-size: 4em;
+    }
+
+    .loader {
+      height: 80px;
+    }
+
+    .container {
+      display: flex;
+      flex-flow: column;
+      justify-content: start;
+      align-items: center;
+      margin-top: 20px;
+
+      .input {
+        display: flex;
+        flex-flow: column;
+
+        input {
+          width: 200px;
+          margin-top: 8px;
+        }
+
+        .text:nth-child(1) {
+          margin-top: 20px;
+        }
+      }
+
+      .buttons {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+
+        .button {
+          margin: 0 8px;
+        }
+      }
+    }
+
+    p {
+      font-size: 0.8em;
+
+      a {
+        color: #ff00ff;
+      }
+    }
+  }
+}

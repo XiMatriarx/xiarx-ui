@@ -21,17 +21,38 @@
       height: 80px;
     }
 
-    h6 {
-      margin-top: 20px;
-    }
-
     .container {
+      display: flex;
+      flex-flow: column;
+      justify-content: start;
+      align-items: center;
       margin-top: 20px;
 
       .input {
+        display: flex;
+        flex-flow: column;
+
         input {
           width: 200px;
           margin-top: 8px;
+        }
+
+        .radio {
+          display: flex;
+          flex-flow: column;
+          margin-top: 8px;
+
+          .subcontainer {
+            display: flex;
+            flex-flow: row;
+            align-items: center;
+            margin-top: 8px;
+
+            input {
+              width: 20px;
+              margin: 0 8px 0 0;
+            }
+          }
         }
       }
 
@@ -41,6 +62,10 @@
         justify-content: space-between;
         align-items: center;
         margin-top: 20px;
+
+        .button {
+          margin: 0 8px;
+        }
       }
     }
 
