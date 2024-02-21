@@ -7,7 +7,7 @@ import './style'
 interface Props {
   id?: string | undefined
   class?: string | undefined
-  type: 'text' | 'password'
+  type: 'text' | 'password' | 'number'
   value: string
   focus?: boolean | undefined
   change: (value: string) => void
