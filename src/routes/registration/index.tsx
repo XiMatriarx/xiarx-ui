@@ -18,12 +18,18 @@ import './style'
 const Registration: FC<RouteProps> = () => {
   const navigate = useNavigate()
   const auth = useAuth()
-
+  console.log(
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position)
+    }),
+  )
   const [step, setStep] = useState(1)
   const [text, setText] = useState<string>('What is your email?')
   const [email, setEmail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const [name, setName] = useState<string>('')
+  const [age, setAge] = useState<number>(18)
+  const [location, setLocation] = useState<string>('')
   const [sex, setSex] = useState<string>('woman')
   const [sexes, setSexes] = useState<{[key: string]: boolean}>({
     women: sex === 'man' || sex === 'non-binary',
@@ -148,7 +154,7 @@ const Registration: FC<RouteProps> = () => {
                     setError('A name is required.')
                   } else {
                     setStep(4)
-                    setText('I am a?')
+                    setText('What is your age?')
                     setError('')
                   }
                 }}>
@@ -158,6 +164,82 @@ const Registration: FC<RouteProps> = () => {
           </div>
         )}
         {step === 4 && (
+          <div className='container'>
+            <div className='input'>
+              <div className='text'>{text}</div>
+              <Input
+                type='number'
+                value={age.toString()}
+                focus={true}
+                change={(value: string) => {
+                  setAge(parseInt(value))
+                }}
+              />
+            </div>
+            {error && <div className='error'>{error}</div>}
+            <div className='buttons'>
+              <Button
+                click={() => {
+                  setStep(3)
+                  setText('What is your name?')
+                  setError('')
+                }}>
+                Back
+              </Button>
+              <Button
+                click={() => {
+                  if (age < 18) {
+                    setError('You have to be 18 to use this app.')
+                  } else {
+                    setStep(5)
+                    setText('What is your location?')
+                    setError('')
+                  }
+                }}>
+                Next
+              </Button>
+            </div>
+          </div>
+        )}
+        {step === 5 && (
+          <div className='container'>
+            <div className='input'>
+              <div className='text'>{text}</div>
+              <Input
+                type='text'
+                value={location}
+                focus={true}
+                change={(value: string) => {
+                  setLocation(value)
+                }}
+              />
+            </div>
+            {error && <div className='error'>{error}</div>}
+            <div className='buttons'>
+              <Button
+                click={() => {
+                  setStep(4)
+                  setText('What is your age?')
+                  setError('')
+                }}>
+                Back
+              </Button>
+              <Button
+                click={() => {
+                  if (!name) {
+                    setError('A name is required.')
+                  } else {
+                    setStep(6)
+                    setText('I am a?')
+                    setError('')
+                  }
+                }}>
+                Next
+              </Button>
+            </div>
+          </div>
+        )}
+        {step === 6 && (
           <div className='container'>
             <div className='input'>
               <div className='text'>{text}</div>
@@ -200,14 +282,14 @@ const Registration: FC<RouteProps> = () => {
             <div className='buttons'>
               <Button
                 click={() => {
-                  setStep(2)
-                  setText('What is your name?')
+                  setStep(5)
+                  setText('What is your location?')
                 }}>
                 Back
               </Button>
               <Button
                 click={() => {
-                  setStep(5)
+                  setStep(7)
                   setSexes({
                     women: sex === 'man' || sex === 'non-binary',
                     men: sex === 'woman' || sex === 'non-binary',
@@ -220,7 +302,7 @@ const Registration: FC<RouteProps> = () => {
             </div>
           </div>
         )}
-        {step === 5 && (
+        {step === 7 && (
           <div className='container'>
             <div className='input'>
               <div className='text'>{text}</div>
@@ -263,14 +345,14 @@ const Registration: FC<RouteProps> = () => {
             <div className='buttons'>
               <Button
                 click={() => {
-                  setStep(4)
+                  setStep(6)
                   setText('I am a?')
                 }}>
                 Back
               </Button>
               <Button
                 click={() => {
-                  setStep(6)
+                  setStep(8)
                   setText('I am here for?')
                 }}>
                 Next
@@ -278,7 +360,7 @@ const Registration: FC<RouteProps> = () => {
             </div>
           </div>
         )}
-        {step === 6 && (
+        {step === 8 && (
           <div className='container'>
             <div className='input'>
               <div className='text'>{text}</div>
@@ -335,7 +417,7 @@ const Registration: FC<RouteProps> = () => {
             <div className='buttons'>
               <Button
                 click={() => {
-                  setStep(5)
+                  setStep(7)
                   setText('I am interested in?')
                 }}>
                 Back
