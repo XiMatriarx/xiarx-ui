@@ -52,7 +52,6 @@ const Login: FC<RouteProps> = () => {
             <Input
               type='password'
               value={password}
-              focus={true}
               change={(value: string) => {
                 setPassword(value)
               }}

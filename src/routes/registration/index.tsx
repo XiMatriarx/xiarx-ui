@@ -18,11 +18,7 @@ import './style'
 const Registration: FC<RouteProps> = () => {
   const navigate = useNavigate()
   const auth = useAuth()
-  console.log(
-    navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position)
-    }),
-  )
+
   const [step, setStep] = useState(1)
   const [text, setText] = useState<string>('What is your email?')
   const [email, setEmail] = useState<string>('')
